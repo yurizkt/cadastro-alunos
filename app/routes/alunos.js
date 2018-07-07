@@ -17,6 +17,16 @@ module.exports = function(app){
 	app.post('/alunos', function(req, res){
 		var aluno = req.body
 
+		req.assert('nome', 'Nome é obrigatório').notEmpty()
+		req.assert('idade', 'Formato inválido').isLength({ min: 1, max: 2})
+		req.assert('serie', 'Série é obrigatório').notEmpty()
+
+		var erros = req.validationErrors()
+		if(erros){
+			res.render('alunos/form', {errosValidacao:erros })
+			return
+		}
+
 		var connection = app.infra.connectionFactory()
 			alunosDAO = new app.infra.AlunosDAO(connection)
 
