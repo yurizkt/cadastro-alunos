@@ -11,7 +11,7 @@ module.exports = function(app){
 	})
 
 	app.get('/alunos/cadastro', function(req, res){
-		res.render('alunos/form')
+		res.render('alunos/form', { errosValidacao:{}, aluno:{} })
 	})
 
 	app.post('/alunos', function(req, res){
@@ -23,7 +23,7 @@ module.exports = function(app){
 
 		var erros = req.validationErrors()
 		if(erros){
-			res.render('alunos/form', {errosValidacao:erros })
+			res.status(400).render('alunos/form', {errosValidacao:erros, aluno:aluno })
 			return
 		}
 
