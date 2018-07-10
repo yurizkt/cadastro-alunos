@@ -1,9 +1,12 @@
 module.exports = function(app){
-	app.get('/alunos', function(req, res){
+	app.get('/alunos', function(req, res, next){
 		var connection = app.infra.connectionFactory()
 			alunosDAO = new app.infra.AlunosDAO(connection)
 
 		alunosDAO.lista(function(err, results){
+			if(err){
+				return next(err)
+			}
 			res.render('alunos/lista', {lista:results})
 		})
 

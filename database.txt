@@ -1,0 +1,14 @@
+CREATE TABLE alunos ( 
+	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	nome varchar(255) DEFAULT NULL,
+	idade int(2) NOT NULL,
+	serie text
+);
+
+
+INSERT INTO alunos (nome, idade, serie) values("Maria", 14, "9º ano");
+INSERT INTO alunos (nome, idade, serie) values("Laura", 13, "8º ano");
+INSERT INTO alunos (nome, idade, serie) values("José", 12, "7º ano");
+INSERT INTO alunos (nome, idade, serie) values("Gilson", 11, "6º ano");
+INSERT INTO alunos (nome, idade, serie) values("Tiago", 10, "5º ano");
+INSERT INTO alunos (nome, idade, serie) values("Debora", 9, "4º ano");
