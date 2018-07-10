@@ -1,16 +1,21 @@
 var express = require('../config/express')()
 	request = require('supertest')(express)
+	DatabaseCleaner = require('database-cleaner')
+	databaseCleaner = new DatabaseCleaner('mysql')
 
 describe('#AlunosController', function(){
 
-	// beforeEach(function(done){
-	// 	var conn = express.infra.connectionFactory()
-	// 	conn.query('delete from alunos', function(ex, result){
-	// 		if(!ex){
-	// 			done()
-	// 		}
-	// 	})
-	// })
+	beforeEach(function(done){
+		databaseCleaner.clean(express.infra.connectionFactory(), function(){
+			done()
+		})
+	})
+
+	afterEach(function(done){
+		databaseCleaner.clean(express.infra.connectionFactory(), function(){
+			done()
+		})
+	})
 
 	it('#listagem html', function(done){
 		request.get('/alunos')
@@ -31,10 +36,11 @@ describe('#AlunosController', function(){
 	})
 
 	it('#cadastro de novo aluno com dados válidos', function(done){
-
 		request.post('/alunos')
 			   .send({ nome: 'José', serie: '4º ano', idade: 9})
-			   .expect(302,done)
-
+			   .expect(302)
+			   .end(function(err, response){
+			   		done()
+			   })
 	})
 })
