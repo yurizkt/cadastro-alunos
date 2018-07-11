@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Formulario</title>
+	<title>Application</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
@@ -35,44 +35,12 @@
 			  	</li>
 			</ul>
 		</nav>
-
-		<div>
-			<%if(errosValidacao){%>
-			<ul>
-				<%for(var i = 0; i < errosValidacao.length; i++){%>
-				<li class="alert alert-danger" role="alert"><%=errosValidacao[i].param%> - <%=errosValidacao[i].msg%></li>
-				<%}%>
-			</ul>
-			<%}%>
-		</div>
-		<form action="/alunos" method="POST">
-			<div class="form-group">
-				<label for="nome">Nome</label>
-				<input class="form-control" type="text" name="nome" value="<%=aluno.nome%>" placeholder="Nome completo">
-			</div>
-			<div class="form-group">
-				<label for="idade">Idade</label>
-				<input class="form-control" type="text" name="idade" value="<%=aluno.idade%>" placeholder="Idade do aluno">
-			</div>
-			<div class="form-group">
-				<label for="serie">Série</label>
-				<select class="form-control" type="text" name="serie">
-					<option value="1º ano">1º ano</option>
-					<option value="2º ano">2º ano</option>
-					<option value="3º ano">3º ano</option>
-					<option value="4º ano">4º ano</option>
-					<option value="5º ano">5º ano</option>
-					<option value="6º ano">6º ano</option>
-					<option value="7º ano">7º ano</option>
-					<option value="8º ano">8º ano</option>
-					<option value="9º ano">9º ano</option>
-				</select>
-			</div>
-
-			<input class="btn btn-primary btn-sm" type="submit" value="Salvar" >
-		</form>
-
 	</div>
+
+
+
+
+
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

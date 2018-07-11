@@ -8,6 +8,7 @@ var express = require('express')
 module.exports = function(){
 	var app = express()
 
+	app.use(express.static('./app/public')) // rastrear pastas com arquivos estáticos
 	app.set('view engine', 'ejs')
 	app.set('views', './app/views')
 
