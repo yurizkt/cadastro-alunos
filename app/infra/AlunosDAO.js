@@ -37,6 +37,10 @@ AlunosDAO.prototype.salva = function(aluno, callback){
 	this._connection.query('insert into alunos set ?', aluno, callback)
 }
 
+AlunosDAO.prototype.deleta = function(aluno, callback){
+	this._connection.query('delete from alunos where id = ?', aluno, callback)
+}
+
 module.exports = function(){
 	return AlunosDAO
 }
